@@ -1,0 +1,224 @@
+@-webkit-keyframes train-move {
+  0% {
+    background-position-x: 0; }
+
+  100% {
+    background-position-x: -100%; } }
+
+@-moz-keyframes train-move {
+  0% {
+    background-position-x: 0; }
+
+  100% {
+    background-position-x: -100%; } }
+
+@keyframes train-move {
+  0% {
+    background-position-x: 0; }
+
+  100% {
+    background-position-x: -100%; } }
+
+body {
+  font: 14px Helvetica, Arial, sans-serif;
+  background-color: #cacaca;
+  padding: 0;
+  margin: 0; }
+
+h1 {
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 4rem; }
+
+.name {
+  font-size: 8rem;
+  display: block; }
+
+.date {
+  color: #927937;
+  text-align: center;
+  font-size: 1.1rem; }
+
+.date-seperator {
+  display: inline-block;
+  position: relative;
+  bottom: 5px; }
+
+.container {
+  margin: 100px auto 0 auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.sublayer {
+  position: fixed;
+  top: 80px;
+  z-index: 1; }
+
+.toplayer {
+  margin: 500px auto;
+  z-index: 2;
+  position: relative; }
+
+.frame {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden; }
+
+.when {
+  background-color: #1a1a1a;
+  margin: 0;
+  color: #cacaca;
+  background-color: #1a1a1a;
+  overflow: hidden;
+  height: 500px; }
+
+.when-info {
+  padding: 30px;
+  background: transparent;
+  margin: auto;
+  margin-top: 30%;
+  position: relative;
+  max-width: 300px; }
+
+.content {
+  text-align: center;
+  position: relative; }
+
+.crystal {
+  position: absolute; }
+  .crystal.when-crystal {
+    top: -20px; }
+  .crystal.where-crystal {
+    left: 20px; }
+
+.where {
+  background: url("../img/map.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px; }
+
+.where-info {
+  margin: 5% auto 0;
+  max-width: 300px;
+  position: relative; }
+  .where-info .content {
+    top: 75px; }
+
+.wythe-img {
+  position: relative;
+  top: 4px; }
+
+.accomodations {
+  background-color: #1a1a1a;
+  color: #cacaca;
+  padding: 10px; }
+  .accomodations h3 {
+    color: #ffffff; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+.column {
+  float: left;
+  width: 50%; }
+
+.logo {
+  height: 80px;
+  width: 60px;
+  background: url("../img/monogram.png") no-repeat;
+  background-size: 60px 80px;
+  display: inline-block; }
+  .logo:hover {
+    text-decoration: none;
+    border-bottom: none; }
+
+.logo-container {
+  margin: 2px;
+  display: inline-block; }
+
+nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 84px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #cacaca;
+  z-index: 5; }
+  nav ul {
+    float: right;
+    margin: 0;
+    margin-right: 10px; }
+  nav li {
+    list-style: none;
+    display: inline-block;
+    height: 80px;
+    width: 100px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  nav a {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 32px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 2px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: white;
+    text-decoration: none; }
+    nav a:hover {
+      text-decoration: none;
+      border-bottom: 1px solid #FFFFFF; }
+
+.skyline {
+  height: 200px;
+  width: 100%;
+  background: url("../img/skyline.png");
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: left bottom;
+  margin: 0; }
+
+.subway-graphic {
+  margin-top: 20px;
+  background: url("../img/subway.png");
+  height: 100px;
+  width: 100%;
+  background-repeat: repeat-x;
+  background-size: contain; }
+
+.clearfix:after {
+  content: " ";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both; }
+
+.hide {
+  display: none; }
+
+.txt-center {
+  text-align: center; }
+
+@media (max-device-width: 650px), (max-width: 650px) {
+  .column {
+    width: 100%; }
+
+  .where-info {
+    height: 280px; }
+
+  .map {
+    max-height: 100%; } }

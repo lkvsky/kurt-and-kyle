@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Kurt and Kyle</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if debug %}
+        <link rel="stylesheet" type="text/css" href="static/css/main.css">
+        <script data-main="static/js/main" src="static/js/lib/require.js"></script>
+        {% else %}
+        <link rel="stylesheet" type="text/css" href="static/build/main.min.css">
+        <script data-main="static/js/optimized-main" src="static/js/lib/require.js"></script>
+        {% endif %}
+    </head>
+    <body>
+        <nav>
+            <div class="logo-container">
+                <a class="logo" href="/"></a>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0)">Event</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">Registries</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <div class="frame sublayer intro hide">
+                <h1><span class="name">Kurt</span> &amp; <span class="name">Kyle</span></h1>
+                <p class="date">04 <span class="date-seperator">.</span> 18 <span class="date-seperator">.</span> 2015</p>
+            </div>
+
+            <div class="frame toplayer">
+                <div class="skyline">
+                </div>
+                <div class="when clearfix">
+                    <div class="column">
+                        <div class="when-info">
+                            <canvas class="when-crystal crystal"></canvas>
+                            <div class="content">
+                                <h2>When</h2>
+                                <p>Saturday, April 18, 2015</p>
+                                <p>6PM - 12AM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <img src="static/img/wythe.png" class="wythe-img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="frame where sublayer hide">
+                <div class="row clearfix">
+<!--                     <div class="column">
+                        <img src="static/img/map.png" class="map">
+                    </div> -->
+<!--                     <div class="column">
+                        <div class="where-info">
+                            <canvas class="where-crystal crystal"></canvas>
+                            <div class="content">
+                                <h2>Where</h2>
+                                <p>80 N. Wythe</p>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="frame accomodations toplayer">
+                <div class="row clearfix">
+                    <h3 class="txt-center">Staying at the Wythe</h3>
+                    <p>If you'd like to stay at the Wythe, there are a selection of 10 rooms held at a discounted rate until March 18, 2015. After the cutoff date, rooms are available at full price, pending availability. To book one of the discounted rooms, please call the Wythe Hotel at (718) 460-8000 and book under the "Lucovsky Yalcin" wedding room block.</p>
+                    <h3>Other Hotels</h3>
+                    <p>The Wythe hotel is located in Williamsburg, home to many hip restaurants, bars, boutiques and more. McCarren Hotel &amp; Pool is another great alternative to the Wythe if you'd like to stay close to the venue.</p>
+                    <p>If you'd like to stay in Manhattan, we recommend staying close to 14th St. The W in Union Square, The Standard at the Highline, Gansevoort Meatpacking and Dream Downtown are all great options.</p>
+                </div>
+            </div>
+
+            <div class="transportation">
+            </div>
+        </div>
+    </body>
+</html>

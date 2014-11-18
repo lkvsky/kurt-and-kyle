@@ -1,0 +1,308 @@
+$light_gray: #cacaca;
+$dark_gray: #1a1a1a;
+$gold: #927937;
+
+@mixin border_box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+  @keyframes $animation-name {
+    @content;
+  }
+}
+
+@mixin animation($animation-name) {
+    -webkit-animation: $animation-name;
+    -moz-animation: $animation-name;
+    animation: $animation-name;
+}
+
+@mixin animation-duration($duration) {
+    -webkit-animation-duration: $duration;
+    -moz-animation-duration: $duration;
+    animation-duration: $duration;
+}
+
+@mixin animation-iteration-count($iteration-count) {
+    -webkit-animation-iteration-count: $iteration-count;
+    -moz-animation-iteration-count: $iteration-count;
+    animation-iteration-count: $iteration-count;
+}
+
+@mixin animation-iteration-delay($delay) {
+    -webkit-animation-delay: $delay;
+    -moz-animation-delay: $delay;
+    animation-delay: $delay;
+}
+
+@include keyframes(train-move) {
+    0% {
+        background-position-x: 0;
+    }
+
+    100% {
+        background-position-x: -100%;
+    }
+}
+
+body {
+  font: 14px Helvetica, Arial, sans-serif;
+  background-color: $light_gray;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 4rem;
+}
+
+.name {
+    font-size: 8rem;
+    display: block;
+}
+
+.date {
+    color: $gold;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.date-seperator {
+    display: inline-block;
+    position: relative;
+    bottom: 5px;
+}
+
+.container {
+    margin: 100px auto 0 auto;
+    @include border_box;
+}
+
+.sublayer {
+    position: fixed;
+    top: 80px;
+    z-index: 1;
+}
+
+.toplayer {
+    margin: 500px auto;
+    z-index: 2;
+    position: relative;
+}
+
+
+.frame {
+    width: 100%;
+    @include border_box;
+    overflow: hidden;
+}
+
+.when {
+    background-color: $dark_gray;
+    margin: 0;
+    color: $light_gray;
+    background-color: $dark_gray;
+    overflow: hidden;
+    height: 500px;
+}
+
+.when-info {
+    padding: 30px;
+    background: transparent;
+    margin: auto;
+    margin-top: 30%;
+    position: relative;
+    max-width: 300px;
+}
+
+.content {
+    text-align: center;
+    position: relative;
+}
+
+.crystal {
+    position: absolute;
+
+    &.when-crystal {
+        top: -20px;
+    }
+
+    &.where-crystal {
+        // top: 50px;
+        left: 20px;
+    }
+}
+
+.where {
+    background: url('../img/map.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+}
+
+.where-info {
+    margin: 5% auto 0;
+    max-width: 300px;
+    position: relative;
+
+    .content {
+        top: 75px;
+    }
+}
+
+// .map {
+//     max-height: 400px;
+// }
+
+.wythe-img {
+    position: relative;
+    top: 4px;
+}
+
+.accomodations {
+    background-color: $dark_gray;
+    color: $light_gray;
+    padding: 10px;
+
+    h3 {
+        color: #ffffff;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+.logo {
+    height: 80px;
+    width: 60px;
+    background: url('../img/monogram.png') no-repeat;
+    background-size: 60px 80px;
+    display: inline-block;
+
+    &:hover {
+        text-decoration: none;
+        border-bottom: none;
+    }
+}
+
+.logo-container {
+    margin: 2px;
+    display: inline-block
+}
+
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 84px;
+    width: 100%;
+    @include border_box;
+    background-color: $light_gray;
+    z-index: 5;
+
+    ul {
+        float: right;
+        margin: 0;
+        margin-right: 10px;
+    }
+
+    li {
+        list-style: none;
+        display: inline-block;
+        height: 80px;
+        width: 100px;
+        @include border_box;
+    }
+
+    a {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        vertical-align: middle;
+        text-align: center;
+        padding-top: 32px;
+        border: none;
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 2px;
+        @include border_box;
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+            border-bottom: 1px solid #FFFFFF;
+        }
+    }
+
+}
+
+.skyline {
+    height: 200px;
+    width: 100%;
+    background: url('../img/skyline.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: left bottom;
+    margin: 0;
+}
+
+.subway-graphic {
+    margin-top: 20px;
+    background: url('../img/subway.png');
+    height: 100px;
+    width: 100%;
+    background-repeat: repeat-x;
+    background-size: contain;
+    // @include animation(train-move);
+    // @include animation-duration(1s);
+    // @include animation-iteration-count(infinite);
+}
+
+.clearfix:after {
+    content: " ";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.hide {
+    display: none;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+@media (max-device-width: 650px), (max-width: 650px) {
+    .column {
+        width: 100%;
+    }
+
+    .where-info {
+        height: 280px;
+    }
+
+    .map {
+        max-height: 100%;
+    }
+}
