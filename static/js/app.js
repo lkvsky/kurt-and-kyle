@@ -4,10 +4,17 @@ define(['jquery'], function ($) {
     var App = {
         primaryGray: '#cacaca',
 
+        sublayerTop: 80,
+
+        mapBreakpoint: 500,
+
+        accomodationBreakpoint: 1150,
+
+        usBreakpoint: 1800,
+
         initialize: function () {
             App.createElements();
             App.drawCrystal(App.whenCrystal, '#cacaca', App.drawWhenCrystal);
-            // App.drawCrystal(App.whereCrystal, '#1a1a1a', App.drawWhereCrystal);
             App.attachEvents();
             App.activeSublayer = App.introEl;
             App.onWindowScroll();
@@ -15,33 +22,43 @@ define(['jquery'], function ($) {
 
         createElements: function () {
             App.whenCrystal = $('.when-crystal.crystal')[0];
-            App.whereCrystal = $('.where-crystal.crystal')[0];
             App.windowEl = $(window);
-            App.introEl = $('.intro');
-            App.whenEl = $('.where');
+            App.sublayer = $('.sublayer');
+            App.registryLink = $('.registry-link');
+            App.registryList = $('.registry-list');
         },
 
         attachEvents: function () {
+            App.windowEl.on('touchmove', App.onWindowScroll);
             App.windowEl.scroll(App.onWindowScroll);
+            App.registryLink.click(App.onRegistryClick);
         },
 
         onWindowScroll: function () {
-            var scrollTop = App.windowEl.scrollTop();
+            var scrollTop = App.windowEl.scrollTop(),
+                currentTop = parseInt(App.sublayer.css('top'), 10),
+                offset;
 
-            if (scrollTop > 600 && App.activeSublayer !== App.whenEl) {
-                App.activeSublayer.addClass('hide');
-                App.whenEl.removeClass('hide');
-                App.activeSublayer = App.whenEl;
+            if (scrollTop > App.mapBreakpoint && scrollTop < App.accomodationBreakpoint) {
+                offset = - (App.sublayerTop + scrollTop - App.mapBreakpoint);
+            } else if (scrollTop >= App.accomodationBreakpoint && scrollTop < App.usBreakpoint) {
+                offset = - 350 - (scrollTop / 3);
+            } else if (scrollTop >= App.usBreakpoint) {
+                offset = - (App.sublayerTop + scrollTop - 930);
+            } else {
+                offset = App.sublayerTop - (scrollTop / 3);
             }
 
-            if (scrollTop <= 600 && App.activeSublayer !== App.introEl) {
-                App.activeSublayer.addClass('hide');
-                App.introEl.removeClass('hide');
-                App.activeSublayer = App.introEl;
-            }
+            App.sublayer.css('top', offset);
+        },
 
-            if (App.activeSublayer.hasClass('hide')) {
-                App.activeSublayer.removeClass('hide');
+        onRegistryClick: function () {
+            if (App.registryLink.hasClass('active')) {
+                App.registryLink.removeClass('active');
+                App.registryList.removeClass('open');
+            } else {
+                App.registryLink.addClass('active');
+                App.registryList.addClass('open');
             }
         },
 
@@ -68,17 +85,6 @@ define(['jquery'], function ($) {
             ctx.lineTo(260, 249);
             ctx.lineTo(40, 150);
             ctx.lineTo(1, 50);
-        },
-
-        drawWhereCrystal: function (ctx) {
-            ctx.beginPath();
-            ctx.moveTo(10, 40);
-            ctx.lineTo(200, 20);
-            ctx.lineTo(250, 100);
-            ctx.lineTo(299, 175);
-            ctx.lineTo(150, 249);
-            ctx.lineTo(1, 150);
-            ctx.lineTo(10, 40);
         }
     };
 

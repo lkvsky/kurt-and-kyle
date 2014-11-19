@@ -1,4 +1,5 @@
 $light_gray: #cacaca;
+$medium_gray: #838383;
 $dark_gray: #1a1a1a;
 $gold: #927937;
 
@@ -54,6 +55,24 @@ $gold: #927937;
     }
 }
 
+@mixin transform($properties) {
+    -webkit-transform: $properties;
+    -moz-transform: $properties;
+    transform: $properties;
+}
+
+@mixin transform-origin($value) {
+    -webkit-transform-origin: $value;
+    -moz-transform-origin: $value;
+    transform-origin: $value;
+}
+
+@mixin transition {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
 body {
   font: 14px Helvetica, Arial, sans-serif;
   background-color: $light_gray;
@@ -93,6 +112,9 @@ h1 {
     position: fixed;
     top: 80px;
     z-index: 1;
+    width: 100%;
+    @include border_box;
+    overflow: hidden;
 }
 
 .toplayer {
@@ -137,33 +159,23 @@ h1 {
     &.when-crystal {
         top: -20px;
     }
-
-    &.where-crystal {
-        // top: 50px;
-        left: 20px;
-    }
 }
 
 .where {
     background: url('../img/map.png');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 500px;
+    height: 520px;
+    margin-top: 300px;
 }
 
-.where-info {
-    margin: 5% auto 0;
-    max-width: 300px;
-    position: relative;
-
-    .content {
-        top: 75px;
-    }
+.us {
+    background: url('../img/kurt_kyle_01.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 520px;
+    margin-top: 50px;
 }
-
-// .map {
-//     max-height: 400px;
-// }
 
 .wythe-img {
     position: relative;
@@ -174,6 +186,7 @@ h1 {
     background-color: $dark_gray;
     color: $light_gray;
     padding: 10px;
+    height: 500px;
 
     h3 {
         color: #ffffff;
@@ -218,18 +231,46 @@ nav {
     background-color: $light_gray;
     z-index: 5;
 
-    ul {
-        float: right;
-        margin: 0;
-        margin-right: 10px;
-    }
-
     li {
         list-style: none;
         display: inline-block;
         height: 80px;
-        width: 100px;
         @include border_box;
+    }
+
+    .nav-list {
+        float: right;
+        margin: 0;
+        margin-right: 10px;
+
+        li {
+            width: 100px;
+        }
+    }
+
+    .registry-list {
+        @include border_box;
+        @include transform(scale(0, 1));
+        @include transition;
+        @include transform-origin(100% 0);
+        background-color: $medium_gray;
+        position: absolute;
+        top: 0;
+        right: 100px;
+        margin: 0 30px 0 -20px;
+        overflow: hidden;
+
+        li {
+            margin: 0 20px;
+
+            &:first-of-type {
+                margin-left: 0;
+            }
+        }
+
+        &.open {
+            @include transform(scale(1, 1));
+        }
     }
 
     a {
@@ -247,7 +288,7 @@ nav {
         color: white;
         text-decoration: none;
 
-        &:hover {
+        &:hover, &.active {
             text-decoration: none;
             border-bottom: 1px solid #FFFFFF;
         }

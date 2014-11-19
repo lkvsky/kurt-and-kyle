@@ -53,7 +53,12 @@ h1 {
 .sublayer {
   position: fixed;
   top: 80px;
-  z-index: 1; }
+  z-index: 1;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden; }
 
 .toplayer {
   margin: 500px auto;
@@ -91,21 +96,20 @@ h1 {
   position: absolute; }
   .crystal.when-crystal {
     top: -20px; }
-  .crystal.where-crystal {
-    left: 20px; }
 
 .where {
   background: url("../img/map.png");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 500px; }
+  height: 520px;
+  margin-top: 300px; }
 
-.where-info {
-  margin: 5% auto 0;
-  max-width: 300px;
-  position: relative; }
-  .where-info .content {
-    top: 75px; }
+.us {
+  background: url("../img/kurt_kyle_01.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 520px;
+  margin-top: 50px; }
 
 .wythe-img {
   position: relative;
@@ -114,7 +118,8 @@ h1 {
 .accomodations {
   background-color: #1a1a1a;
   color: #cacaca;
-  padding: 10px; }
+  padding: 10px;
+  height: 500px; }
   .accomodations h3 {
     color: #ffffff; }
 
@@ -151,18 +156,46 @@ nav {
   box-sizing: border-box;
   background-color: #cacaca;
   z-index: 5; }
-  nav ul {
-    float: right;
-    margin: 0;
-    margin-right: 10px; }
   nav li {
     list-style: none;
     display: inline-block;
     height: 80px;
-    width: 100px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box; }
+  nav .nav-list {
+    float: right;
+    margin: 0;
+    margin-right: 10px; }
+    nav .nav-list li {
+      width: 100px; }
+  nav .registry-list {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: scale(0, 1);
+    -moz-transform: scale(0, 1);
+    transform: scale(0, 1);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-transform-origin: 100% 0;
+    -moz-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+    background-color: #838383;
+    position: absolute;
+    top: 0;
+    right: 100px;
+    margin: 0 30px 0 -20px;
+    overflow: hidden; }
+    nav .registry-list li {
+      margin: 0 20px; }
+      nav .registry-list li:first-of-type {
+        margin-left: 0; }
+    nav .registry-list.open {
+      -webkit-transform: scale(1, 1);
+      -moz-transform: scale(1, 1);
+      transform: scale(1, 1); }
   nav a {
     display: inline-block;
     height: 100%;
@@ -179,7 +212,7 @@ nav {
     box-sizing: border-box;
     color: white;
     text-decoration: none; }
-    nav a:hover {
+    nav a:hover, nav a.active {
       text-decoration: none;
       border-bottom: 1px solid #FFFFFF; }
 
