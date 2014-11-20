@@ -21,40 +21,6 @@ $gold: #927937;
   }
 }
 
-@mixin animation($animation-name) {
-    -webkit-animation: $animation-name;
-    -moz-animation: $animation-name;
-    animation: $animation-name;
-}
-
-@mixin animation-duration($duration) {
-    -webkit-animation-duration: $duration;
-    -moz-animation-duration: $duration;
-    animation-duration: $duration;
-}
-
-@mixin animation-iteration-count($iteration-count) {
-    -webkit-animation-iteration-count: $iteration-count;
-    -moz-animation-iteration-count: $iteration-count;
-    animation-iteration-count: $iteration-count;
-}
-
-@mixin animation-iteration-delay($delay) {
-    -webkit-animation-delay: $delay;
-    -moz-animation-delay: $delay;
-    animation-delay: $delay;
-}
-
-@include keyframes(train-move) {
-    0% {
-        background-position-x: 0;
-    }
-
-    100% {
-        background-position-x: -100%;
-    }
-}
-
 @mixin transform($properties) {
     -webkit-transform: $properties;
     -moz-transform: $properties;
@@ -178,8 +144,9 @@ h1 {
 }
 
 .wythe-img {
-    position: relative;
-    top: 4px;
+    position: absolute;
+    bottom: 0;
+    max-width: 50%;
 }
 
 .accomodations {
@@ -259,17 +226,29 @@ nav {
         right: 100px;
         margin: 0 30px 0 -20px;
         overflow: hidden;
+        opacity: 0;
 
         li {
             margin: 0 20px;
+            height: 84px;
 
             &:first-of-type {
                 margin-left: 0;
             }
         }
 
+        a {
+            padding: 32px 5px 0;
+        }
+
+        a:hover {
+            border: none;
+            background-color: $gold;
+        }
+
         &.open {
             @include transform(scale(1, 1));
+            opacity: 1;
         }
     }
 
@@ -313,9 +292,6 @@ nav {
     width: 100%;
     background-repeat: repeat-x;
     background-size: contain;
-    // @include animation(train-move);
-    // @include animation-duration(1s);
-    // @include animation-iteration-count(infinite);
 }
 
 .clearfix:after {
@@ -335,15 +311,49 @@ nav {
 }
 
 @media (max-device-width: 650px), (max-width: 650px) {
+    nav .registry-list {
+        @include transform(scale(1, 0));
+        @include transform_origin(0 -100%);
+        width: calc(100% - 100px);
+
+        li {
+            display: block;
+            width: 100%;
+            margin: 0;
+        }
+
+        a {
+            text-align: right;
+        }
+
+    }
     .column {
         width: 100%;
     }
 
-    .where-info {
-        height: 280px;
+    .us {
+        background-position: -50px;
+    }
+}
+
+@media (min-width: 920px) {
+    .us {
+        background-position: 0 -150px;
+    }
+}
+
+@media (max-width: 420px) {
+    .where {
+        background-position: -200px;
+    }
+}
+
+@media (max-device-width: 420px) {
+    .us {
+        background-position: -150px, -50px;
     }
 
-    .map {
-        max-height: 100%;
+    .where {
+        background-position: -175px;
     }
 }
