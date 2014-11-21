@@ -16,40 +16,17 @@ define(['jquery'], function ($) {
             App.createElements();
             App.drawCrystal(App.whenCrystal, '#cacaca', App.drawWhenCrystal);
             App.attachEvents();
-            App.activeSublayer = App.introEl;
-            App.onWindowScroll();
         },
 
         createElements: function () {
             App.whenCrystal = $('.when-crystal.crystal')[0];
             App.windowEl = $(window);
-            App.sublayer = $('.sublayer');
             App.registryLink = $('.registry-link');
             App.registryList = $('.registry-list');
         },
 
         attachEvents: function () {
-            App.windowEl.on('touchmove', App.onWindowScroll);
-            App.windowEl.scroll(App.onWindowScroll);
             App.registryLink.click(App.onRegistryClick);
-        },
-
-        onWindowScroll: function () {
-            var scrollTop = App.windowEl.scrollTop(),
-                currentTop = parseInt(App.sublayer.css('top'), 10),
-                offset;
-
-            if (scrollTop > App.mapBreakpoint && scrollTop < App.accomodationBreakpoint) {
-                offset = - (App.sublayerTop + scrollTop - App.mapBreakpoint);
-            } else if (scrollTop >= App.accomodationBreakpoint && scrollTop < App.usBreakpoint) {
-                offset = - 350 - (scrollTop / 3);
-            } else if (scrollTop >= App.usBreakpoint) {
-                offset = - (App.sublayerTop + scrollTop - 930);
-            } else {
-                offset = App.sublayerTop - (scrollTop / 3);
-            }
-
-            App.sublayer.css('top', offset);
         },
 
         onRegistryClick: function () {
