@@ -283,14 +283,11 @@ nav {
 @media (min-width: 1000px) {
   .us {
     background-position: 0 -200px; } }
-@media (max-width: 420px) {
-  .where {
-    background-position: -400px 0; } }
-@media (max-device-width: 420px) {
+@media (max-device-width: 420px), (max-width: 420px) {
   .us {
-    background-position: -300px 0; }
+    background-position: -150px 0; }
 
   .where {
-    background-position: -175px; } }
+    background-position: -400px 0; } }
 
 /*# sourceMappingURL=main.css.map */

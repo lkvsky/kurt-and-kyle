@@ -378,19 +378,12 @@ nav {
     }
 }
 
+@media (max-device-width: 420px), (max-width: 420px) {
+    .us {
+        background-position: -150px 0;
+    }
 
-@media (max-width: 420px) {
     .where {
         background-position: -400px 0;
-    }
-}
-
-@media (max-device-width: 420px) {
-    .us {
-        background-position: -300px 0;
-    }
-
-    .where {
-        background-position: -175px;
     }
 }
