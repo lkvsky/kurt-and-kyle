@@ -257,17 +257,20 @@ nav {
   position: relative; }
   .when h2 {
     color: #ffffff; }
-  .when .flex {
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    width: 100%; }
-  .when .column {
-    margin-top: 200px; }
+
+.absolute-wrapper {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  max-width: 940px;
+  width: 100%; }
 
 .when-content {
   z-index: 1;
-  position: relative; }
+  position: absolute;
+  top: 200px;
+  left: 20px;
+  width: 100%; }
   .when-content h2 {
     margin: 0; }
   .when-content .important {
@@ -275,17 +278,6 @@ nav {
     font-size: 1.5rem;
     margin: 0;
     text-transform: uppercase; }
-  .when-content .absolute-wrapper {
-    position: absolute;
-    right: 15px; }
-
-.when-countdown {
-  font-family: 'sf_archery_blackregular', Helvetica, sans-serif;
-  font-size: 1.5rem;
-  z-index: 1; }
-  .when-countdown .days, .when-countdown .hours {
-    margin: 0;
-    font-size: 3rem; }
 
 .skyline {
   height: 200px;
@@ -333,7 +325,7 @@ nav {
   text-align: center; }
 
 @media (min-width: 940px) {
-  .when .flex {
+  .when .absolute-wrapper {
     left: calc((100% - 940px) / 2); } }
 @media (max-device-width: 650px), (max-width: 650px) {
   .intro {
@@ -369,9 +361,11 @@ nav {
 
   .name {
     font-size: 5rem; }
+    .name.first {
+      right: 3rem !important; }
     .name.last {
       top: 8rem;
-      right: 2rem; }
+      right: 0rem !important; }
 
   .date {
     top: 16.5rem;
@@ -380,33 +374,14 @@ nav {
 
   .name-divider {
     font-size: 2rem;
-    top: 7.1rem; }
+    top: 7.1rem;
+    right: 3.5rem !important; }
 
   .column {
     width: 100%; }
     .column.wythe {
       margin-top: -120px;
       height: 500px; }
-
-  .when .column {
-    text-align: center;
-    margin-top: 200px; }
-    .when .column .absolute-wrapper {
-      position: static; }
-
-  .when-content {
-    -webkit-box-ordinal-group: 1;
-    -moz-box-ordinal-group: 1;
-    -ms-flex-order: 1;
-    -webkit-order: 1;
-    order: 1; }
-
-  .when-countdown {
-    -webkit-box-ordinal-group: 2;
-    -moz-box-ordinal-group: 2;
-    -ms-flex-order: 2;
-    -webkit-order: 2;
-    order: 2; }
 
   .registry-list li {
     display: block;
@@ -416,6 +391,10 @@ nav {
       max-width: 30%; }
 
   .skyline {
-    margin-top: -100px; } }
+    margin-top: -100px; }
+
+  .when-content {
+    text-align: center;
+    left: 0; } }
 
 /*# sourceMappingURL=main.css.map */
