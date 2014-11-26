@@ -227,7 +227,8 @@ nav {
   flex-direction: row;
   flex-wrap: wrap;
   -ms-flex-wrap: wrap;
-  max-width: 940px; }
+  max-width: 940px;
+  margin: auto; }
 
 .column {
   padding: 10px;
